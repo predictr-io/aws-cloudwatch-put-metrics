@@ -1,0 +1,25 @@
+name: 'AWS CloudWatch Put Metrics'
+description: 'Publish custom metrics to AWS CloudWatch'
+author: 'predictr-io'
+
+branding:
+  icon: 'activity'
+  color: 'orange'
+
+inputs:
+  # Required parameters
+  namespace:
+    description: 'CloudWatch namespace for the metrics (e.g., "MyApp/Performance")'
+    required: true
+
+  metric-data:
+    description: 'Metric data as JSON array (see README for format)'
+    required: true
+
+outputs:
+  metrics-count:
+    description: 'Number of metrics successfully published'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
